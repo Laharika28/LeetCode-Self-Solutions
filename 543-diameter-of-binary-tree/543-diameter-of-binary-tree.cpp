@@ -19,14 +19,15 @@ public:
         
         int l = solve(root->left,res);
         int r = solve(root->right,res);
-        
-        int temp = 1+max(l,r);
-        int ans = l+r;
-        res = max(ans,res);
-        return temp;
+          
+        res = max(res,l+r);
+        return 1+max(l,r);
     }
     
     int diameterOfBinaryTree(TreeNode* root) {
+        if(root==NULL){
+            return 0;
+        }
         int res=0;
         solve(root,res);
         return res;
