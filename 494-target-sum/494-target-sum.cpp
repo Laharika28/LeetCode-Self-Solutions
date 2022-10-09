@@ -53,7 +53,7 @@ public:
         if(abs(target)>sum || ((target+sum) % 2 != 0)){
             return 0;
         }
-        s1=(sum-target)/2;
+        s1=(sum+target)/2;
        
         int ans;
         ans=subsetcount(nums,(nums.size()),s1);
