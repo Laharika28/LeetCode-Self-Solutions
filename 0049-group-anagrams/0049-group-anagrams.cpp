@@ -5,7 +5,7 @@ public:
         int l=0;
         string t;
         int n=strs.size();
-        map<string,int> mp;
+        unordered_map<string,int> mp;
         for(int i=0;i<n;i++){
             t=strs[i];
             sort(t.begin(),t.end());
