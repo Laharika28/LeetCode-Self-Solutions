@@ -5,7 +5,6 @@ public:
         int n = s.length();
         int i = 0;
         int val = 0;
-        int ans = 0;
         int sign = 1;
         int t = 0;
         string temp = "";
@@ -42,7 +41,6 @@ public:
                     st.push(val);
                     st.push(sign);
                 }
-                ans = ans + val;
                 val = 0;
                 sign = 1;
                 i++;
