@@ -7,25 +7,17 @@ public:
             mp[arr[i]] ++;
         }
        
-        bool flag=true;
-       
-        unordered_map<int,int> :: iterator ip;
-        vector<int> v;
-        for(ip=mp.begin() ; ip!=mp.end() ; ip++)
-        {
-            v.push_back(ip->second);
-        }
-       
-        sort(v.begin() , v.end());
-        for(int i=0;i<v.size()-1 ; i++)
-        {
-            if(v[i] == v[i+1])
-            {
-                flag=false;
+        unordered_set<int> s;
+        
+        unordered_map<int,int> :: iterator it;
+        
+        for (it=mp.begin();it!=mp.end();it++) {
+            if (s.find(it->second) != s.end()) {
+                return false;
             }
+            s.insert(it->second);
         }
-        return flag;
-       
-    
+        
+        return true;
     }
 };
