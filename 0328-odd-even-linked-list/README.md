@@ -9,15 +9,15 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/oddeven-linked-list.jpg" style="width: 300px; height: 123px;">
-<pre><strong>Input:</strong> head = [1,2,3,4,5]
+<pre style="position: relative;"><strong>Input:</strong> head = [1,2,3,4,5]
 <strong>Output:</strong> [1,3,5,2,4]
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/oddeven2-linked-list.jpg" style="width: 500px; height: 142px;">
-<pre><strong>Input:</strong> head = [2,1,3,5,6,4,7]
+<pre style="position: relative;"><strong>Input:</strong> head = [2,1,3,5,6,4,7]
 <strong>Output:</strong> [2,3,6,7,1,5,4]
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
