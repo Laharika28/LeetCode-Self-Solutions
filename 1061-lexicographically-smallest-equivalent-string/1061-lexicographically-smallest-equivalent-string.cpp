@@ -16,6 +16,10 @@ class Solution {
     void union_set(char c1,char c2) {
         int u = find_parent(c1)-'a';
         int v = find_parent(c2)-'a';
+        parent[max(u,c1-'a')] = min(u,c1-'a')+'a';
+        parent[max(v,c2-'a')] = min(v,c2-'a')+'a';
+        u = find_parent(c1)-'a';
+        v = find_parent(c2)-'a';
         parent[max(u,v)] = min(u,v) + 'a';
     }
     
