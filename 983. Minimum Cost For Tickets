@@ -1,0 +1,31 @@
+class Solution {
+
+    int solve(int i,int n,vector<int> & days, vector<int> & costs, int l,vector<vector<int>> & t) {
+
+        if (i>=n) return 0; 
+
+        if (t[i][l] != -1) return t[i][l];
+
+        if (l>=days[i]) return solve(i+1,n,days,costs,l,t);
+
+        int a=costs[0]+solve(i+1,n,days,costs,days[i],t);
+
+        int b=costs[1]+solve(i+1,n,days,costs,days[i]+6,t);
+
+        int c=costs[2]+solve(i+1,n,days,costs,days[i]+29,t);
+
+        return t[i][l]=min(a,min(b,c));
+
+      }
+
+public:
+
+    int mincostTickets(vector<int>& days, vector<int>& costs) {
+
+        vector<vector<int>> t(days.size()+1,vector<int>(400,-1));
+
+        return solve(0,days.size(),days,costs,0,t);
+
+    }
+
+};
