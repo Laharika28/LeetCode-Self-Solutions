@@ -1,0 +1,27 @@
+class Solution {
+
+    int solve( int n, int i, vector<int> & arr,int x,vector<vector<int>> & t) {
+
+        if( i==n) return 0;
+
+        if (t[i][x] != -1) return t[i][x];
+
+        return t[i][x]=max(solve(n,i+1,arr,x,t),arr[i]*x+solve(n,i+1,arr,x+1,t));
+
+      }  
+
+public:
+
+    int maxSatisfaction(vector<int>& satisfaction) {
+
+        int n = satisfaction.size();
+
+        vector<vector<int>> t(n+1,vector<int>(n+1,-1));
+
+        sort(satisfaction.begin(), satisfaction.end());
+
+        return solve(n, 0,satisfaction,1,t);
+
+    }
+
+};
