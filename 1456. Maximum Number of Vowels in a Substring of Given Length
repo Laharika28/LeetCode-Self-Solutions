@@ -1,0 +1,51 @@
+class Solution {
+
+public:
+
+    int maxVowels(string s, int k) {
+
+        int n = s.size();
+
+        int ans = 0,curr;
+
+        unordered_set<int> st  ={'a','e','i','o','u','A','E','I','O','U'};
+
+        for (int i=0;i<k;i++) {
+
+            if (st.find(s[i]) != st.end()) {
+
+                ans++;
+
+            } 
+
+        }
+
+        int i=k;
+
+        curr = ans;
+
+        while (i<n) {
+
+            if (st.find(s[i]) != st.end()) {
+
+                curr++;
+
+            } 
+
+            if (st.find(s[i-k]) != st.end()) {
+
+                curr--;
+
+            }
+
+            ans = max(ans,curr); 
+
+            i++;
+
+        }
+
+        return ans;
+
+    }
+
+};
