@@ -1,0 +1,53 @@
+class Solution {
+
+public:
+
+    bool isBipartite(vector<vector<int>>& a) {
+
+        int n = a.size();
+
+        vector<int> c(n);
+
+        for (int i = 0; i < n; ++i) {
+
+            if (c[i]) continue;
+
+            c[i] = 1;
+
+            queue<int> Q;
+
+            Q.push(i);
+
+            while (!Q.empty()) {
+
+                int u = Q.front();
+
+                Q.pop();
+
+                for (auto& v : a[u]) {
+
+                    if (c[v]) {
+
+                        if (c[u] + c[v] != 0) return false;
+
+                    } else {
+
+                        c[v] = -c[u];
+
+                        Q.push(v);
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        return true;
+
+        
+
+    }
+
+};
