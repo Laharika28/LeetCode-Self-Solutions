@@ -1,0 +1,125 @@
+class Solution {
+
+public:
+
+    bool path(int a,int b,int prev,vector<pair<int,double>>adj[],double &c,vector<bool>&vis)
+
+    {   
+
+        //cout<<a<<" "<<b<<endl;
+
+        if(a==b)
+
+            return true;
+
+        vis[a]=1;
+
+        bool ans=false;
+
+        for(auto i:adj[a])
+
+        {
+
+            if(vis[i.first]==1)
+
+                continue;
+
+            ans=ans||path(i.first,b,a,adj,c,vis);
+
+            if(ans)
+
+            {
+
+                c=c*i.second;
+
+                return ans;
+
+            }
+
+        }
+
+        return ans;
+
+    }
+
+    vector<double> calcEquation(vector<vector<string>>& e, vector<double>& v, vector<vector<string>>& q) {
+
+        map<string,int>m;
+
+        int c=1;
+
+        vector<pair<int,double>>adj[50];
+
+        for(int i=0;i<e.size();i++)
+
+        {
+
+            string a=e[i][0],b=e[i][1];
+
+            if(m.find(a)==m.end())
+
+                m[a]=c++;
+
+            if(m.find(b)==m.end())
+
+                m[b]=c++;
+
+            double x=v[i];
+
+            double y=1/v[i];
+
+            if(a==b)
+
+                continue;
+
+            adj[m[a]].push_back({m[b],x});
+
+            adj[m[b]].push_back({m[a],y});
+
+        }
+
+        vector<double>ans;
+
+        for(int i=0;i<q.size();i++)
+
+        {   
+
+            //cout<<endl;
+
+            int a=m[q[i][0]],b=m[q[i][1]];
+
+            if(a==0 || b==0)
+
+            {
+
+                ans.push_back(-1);
+
+                continue;
+
+            }
+
+            double c=1.0;
+
+            vector<bool>vis(c+1,0);
+
+            bool x=path(a,b,-1,adj,c,vis);
+
+            if(x)
+
+                ans.push_back(c);
+
+            else
+
+                ans.push_back(-1);
+
+            
+
+        }
+
+        return ans;
+
+        
+
+    }
+
+};
